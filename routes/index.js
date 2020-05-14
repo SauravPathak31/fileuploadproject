@@ -7,7 +7,7 @@ const
     , router = express.Router()
     , azureStorage = require('azure-storage')
     , blobService = azureStorage.createBlobService()
-    , containerName = 'thumbnails'
+    , containerName = 'images'
     , config = require('../config')
 ;
 
@@ -36,8 +36,6 @@ router.get('/', (req, res, next) => {
         accountName: config.getStorageAccountName(),
         containerName: containerName
       };
-console.log(containerName)
-console.log("sd",data)
       if (data.entries.length) {
         viewData.thumbnails = data.entries;
       }

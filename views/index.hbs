@@ -1,21 +1,21 @@
-<h1>Image Resizer</h1>
+<h1>File Uploader</h1>
 
-<h2>Upload photos</h2>
+<h2>Upload Files</h2>
 <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
-  <h2>Select an image to upload:</h2>
+  <h2>Select a file to upload:</h2>
   <div class="upload-container"><input id="file-picker" type="file" name="image"></div>
   <div><input type="submit" value="Upload Image"></div>
 </form>
 
 <p id="message">{{message}}</p>
 
-<h2>Generated Thumbnails</h2>
+<h2>Previously uploaded files</h2>
 {{#each this.thumbnails}}
   <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}" />
 {{/each}}
 
 <hr>
-<p>This app has no official privacy policy. Your data will be uploaded to a service in order to produce a thumbnail. Your images will be public once you upload them and there is no automated way to remove them.</p>
+<p>This app uploads your file to the azure server into the storage account and retrieves it</p>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -28,7 +28,7 @@
       message.innerText = '';
 
       if(!picker.files.length) {
-        message.innerText = 'Please select an image to upload.';
+        message.innerText = 'Please select a file to upload.';
         e.preventDefault();
         return false;
       }
