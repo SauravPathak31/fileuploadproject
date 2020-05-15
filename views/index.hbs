@@ -42,7 +42,7 @@
 
   $('#deletebtn').click(function(){
     var abc = $('#deletebtn').data('name');
-    
+    console.log("dsf",abc)
     $.ajax({
           url: '/delete',
           type: 'POST',
