@@ -10,8 +10,9 @@ const
     , containerName = 'images'
     , config = require('../config')
 ;
-router.get('/delete', (req, res, next) => {
+router.post('/delete', (req, res, next) => {
   console.log("inside delete")
+  res.send("yes")
   // const deleteBlob = async (containerName, blobName) => {
   //   return new Promise((resolve, reject) => {
   //       blobService.deleteBlobIfExists(containerName, blobName, err => {

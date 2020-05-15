@@ -41,7 +41,7 @@
 $('#deletebtn').click(function(){
   .ajax({
         url: '/delete',
-        type: 'GET',
+        type: 'POST',
         data: $('#deletebtn').data('name'),
 
         success: function(result) {
