@@ -11,8 +11,8 @@
 
 <h2>Previously uploaded files</h2>
 {{#each this.thumbnails}}
-  <div>
-    <button id="deletebtn" data-name="{{name}}">Delete</button>
+  <div class="row">
+    <button id="deletebtn" class="btn btn-danger" data-name="{{name}}">Delete</button>
     <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}" />
   </div>
 {{/each}}
