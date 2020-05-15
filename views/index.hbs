@@ -11,8 +11,10 @@
 
 <h2>Previously uploaded files</h2>
 {{#each this.thumbnails}}
-  <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}" />
-  <button id="deletebtn" data-name="{{name}}">Delete</button>>
+  <div>
+    <img src="https://{{../accountName}}.blob.core.windows.net/{{../containerName}}/{{name}}" />
+    <button id="deletebtn" data-name="{{name}}">Delete</button>>
+  </div>
 {{/each}}
 
 <hr>
@@ -36,4 +38,25 @@
     });
 
   });
+$('#deletebtn').click(()=>{
+  .ajax({
+        url: '/delete',
+        type: 'GET',
+        data: $('#deletebtn').data('name'),
+
+        success: function(result) {
+            console.log(result);
+            /*
+            $('#results,#errors').remove();
+            $('#contactWrapper').append('<p id="results">' + result + '</p>');
+            $('#loading').fadeOut(500, function() {
+                $(this).remove();
+
+            });
+            */
+
+        }
+    });
+})
+  
 </script>
