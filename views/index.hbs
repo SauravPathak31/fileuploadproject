@@ -46,7 +46,7 @@
     $.ajax({
           url: '/delete',
           type: 'POST',
-          data: abc,
+          data: {name: abc},
           success: function(result) {
               console.log(result);
               /*
