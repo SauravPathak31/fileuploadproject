@@ -12,7 +12,6 @@ const
 ;
 router.post('/delete', (req, res, next) => {
   console.log("inside delete")
-  res.send(req.body.name)
   deleteBlob(containerName, req.body.name)
   res.sendStatus(200)
   res.send("done")
