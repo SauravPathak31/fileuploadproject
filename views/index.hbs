@@ -39,11 +39,11 @@
 
   });
 $('#deletebtn').click(function(){
+  var abc = $('#deletebtn').data('name')
   .ajax({
         url: '/delete',
         type: 'POST',
-        data: $('#deletebtn').data('name'),
-
+        data: abc,
         success: function(result) {
             console.log(result);
             /*
@@ -57,6 +57,6 @@ $('#deletebtn').click(function(){
 
         }
     });
-})
+});
   
 </script>
