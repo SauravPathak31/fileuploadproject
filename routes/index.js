@@ -27,8 +27,40 @@ const deleteBlob = async (containerName, blobName) => {
       });
   });
 };
+const listContainers = async () => {
+  return new Promise((resolve, reject) => {
+      blobService.listContainersSegmented(null, (err, data) => {
+          if (err) {
+              reject(err);
+          } else {
+              resolve({ message: `${data.entries.length} containers`, containers: data.entries });
+          }
+      });
+  });
+};
+
+const createContainer = async (containerName) => {
+  return new Promise((resolve, reject) => {
+      blobService.createContainerIfNotExists(containerName, { publicAccessLevel: 'blob' }, err => {
+          if (err) {
+              reject(err);
+          } else {
+              resolve({ message: `Container '${containerName}' created` });
+          }
+      });
+  });
+};
 router.get('/', (req, res, next) => {
 
+  // response = await listContainers();
+  // response.containers.forEach((container) => console.log(` -  ${container.name}`));
+
+  //   const containerDoesNotExist = response.containers.findIndex((container) => container.name === containerName) === -1;
+
+    // if (containerDoesNotExist) {
+        await createContainer(containerName);
+        console.log(`Container "${containerName}" is created`);
+    // }
   blobService.listBlobsSegmented(containerName, null, (err, data) => {
 
     let viewData;
