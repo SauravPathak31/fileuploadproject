@@ -10,19 +10,20 @@ const
     , containerName = 'images'
     , config = require('../config')
 ;
-// router.get('/delete', (req, res, next) => {
-//   const deleteBlob = async (containerName, blobName) => {
-//     return new Promise((resolve, reject) => {
-//         blobService.deleteBlobIfExists(containerName, blobName, err => {
-//             if (err) {
-//                 reject(err);
-//             } else {
-//                 resolve({ message: `Block blob '${blobName}' deleted` });
-//             }
-//         });
-//     });
-//   };
-// });
+router.get('/delete', (req, res, next) => {
+  console.log("inside delete")
+  // const deleteBlob = async (containerName, blobName) => {
+  //   return new Promise((resolve, reject) => {
+  //       blobService.deleteBlobIfExists(containerName, blobName, err => {
+  //           if (err) {
+  //               reject(err);
+  //           } else {
+  //               resolve({ message: `Block blob '${blobName}' deleted` });
+  //           }
+  //       });
+  //   });
+  // };
+});
 
 router.get('/', (req, res, next) => {
 
