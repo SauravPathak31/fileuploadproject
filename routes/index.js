@@ -13,19 +13,21 @@ const
 router.post('/delete', (req, res, next) => {
   console.log("inside delete")
   res.send(req.body.name)
-  // const deleteBlob = async (containerName, blobName) => {
-  //   return new Promise((resolve, reject) => {
-  //       blobService.deleteBlobIfExists(containerName, blobName, err => {
-  //           if (err) {
-  //               reject(err);
-  //           } else {
-  //               resolve({ message: `Block blob '${blobName}' deleted` });
-  //           }
-  //       });
-  //   });
-  // };
+  deleteBlob(containerName, req.body.name)
+  res.sendStatus(200)
+  res.send("done")
 });
-
+const deleteBlob = async (containerName, blobName) => {
+  return new Promise((resolve, reject) => {
+      blobService.deleteBlobIfExists(containerName, blobName, err => {
+          if (err) {
+              reject(err);
+          } else {
+              resolve({ message: `Block blob '${blobName}' deleted` });
+          }
+      });
+  });
+};
 router.get('/', (req, res, next) => {
 
   blobService.listBlobsSegmented(containerName, null, (err, data) => {
