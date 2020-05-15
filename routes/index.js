@@ -12,7 +12,7 @@ const
 ;
 router.post('/delete', (req, res, next) => {
   console.log("inside delete")
-  res.send("yes")
+  res.send(req.data)
   // const deleteBlob = async (containerName, blobName) => {
   //   return new Promise((resolve, reject) => {
   //       blobService.deleteBlobIfExists(containerName, blobName, err => {
