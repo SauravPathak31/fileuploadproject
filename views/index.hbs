@@ -39,14 +39,27 @@
 
   });
   $(document).ready(function () {
-    $('.btn-danger').click(function(){
-      var abc = $(this).data('name');
-      console.log("dsf",abc)
-      $.ajax({
-            url: '/delete',
-            type: 'POST',
-            data: {name: abc},
-        });
-    });
+
+  $('.btn-danger').click(function(){
+    var abc = $(this).data('name');
+    console.log("dsf",abc)
+    $.ajax({
+          url: '/delete',
+          type: 'POST',
+          data: {name: abc},
+          success: function(result) {
+            window.location.href('/')
+              /*
+              $('#results,#errors').remove();
+              $('#contactWrapper').append('<p id="results">' + result + '</p>');
+              $('#loading').fadeOut(500, function() {
+                  $(this).remove();
+
+              });
+              */
+
+          }
+      });
+  });
   })
 </script>
