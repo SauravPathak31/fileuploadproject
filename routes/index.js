@@ -13,8 +13,7 @@ const
 router.post('/delete', (req, res, next) => {
   console.log("inside delete")
   deleteBlob(containerName, req.body.name)
-  res.sendStatus(200)
-  res.send("done")
+  res.redirect("/")
 });
 const deleteBlob = async (containerName, blobName) => {
   return new Promise((resolve, reject) => {
