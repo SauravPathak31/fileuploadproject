@@ -41,7 +41,7 @@
   $(document).ready(function () {
 
   $('#deletebtn').click(function(){
-    var abc = $('#deletebtn').data('name');
+    var abc = $(this).data('name');
     console.log("dsf",abc)
     $.ajax({
           url: '/delete',
