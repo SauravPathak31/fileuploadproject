@@ -39,25 +39,27 @@
 
   });
   $(document).ready(function () {
-$('#deletebtn').click(function(){
-  var abc = $('#deletebtn').data('name')
-  .ajax({
-        url: '/delete',
-        type: 'POST',
-        data: abc,
-        success: function(result) {
-            console.log(result);
-            /*
-            $('#results,#errors').remove();
-            $('#contactWrapper').append('<p id="results">' + result + '</p>');
-            $('#loading').fadeOut(500, function() {
-                $(this).remove();
+    var abc = $('#deletebtn').data('name');
 
-            });
-            */
+  $('#deletebtn').click(function(){
+    
+    .ajax({
+          url: '/delete',
+          type: 'POST',
+          data: abc,
+          success: function(result) {
+              console.log(result);
+              /*
+              $('#results,#errors').remove();
+              $('#contactWrapper').append('<p id="results">' + result + '</p>');
+              $('#loading').fadeOut(500, function() {
+                  $(this).remove();
 
-        }
-    });
-});
+              });
+              */
+
+          }
+      });
+  });
   })
 </script>
