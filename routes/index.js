@@ -58,8 +58,8 @@ router.get('/', (req, res, next) => {
   //   const containerDoesNotExist = response.containers.findIndex((container) => container.name === containerName) === -1;
 
     // if (containerDoesNotExist) {
-        await createContainer(containerName);
-        console.log(`Container "${containerName}" is created`);
+        // await createContainer(containerName);
+        // console.log(`Container "${containerName}" is created`);
     // }
   blobService.listBlobsSegmented(containerName, null, (err, data) => {
 
